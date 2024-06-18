@@ -17,12 +17,12 @@ jobs:
 
       - name: ssh into the server
         env:
-          PASSWORD: ${{ secrets.PASSWORD }}
-          HOST: ${{ secrets.HOST }}
-          USER: ${{ secrets.USER }}
+          #PASSWORD: 
+          #HOST: 
+          #USER: 
 
         run: |
-          sshpass -p "$PASSWORD" ssh -o StrictHostKeyChecking=no $USER@$HOST << 'EOF'
+          sshpass -p "${{ secrets.PASSWORD }}" ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} << 'EOF'
           pwd
           ls -al
           EOF
