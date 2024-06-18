@@ -1,0 +1,12 @@
+name: checktheworkflow
+
+on:
+  push
+
+jobs:
+  firstjob:
+    runs-on:
+      ubuntu-latest
+    steps:
+      name: first jobs
+      run: echo "hello world"
