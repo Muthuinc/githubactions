@@ -7,8 +7,14 @@ jobs:
   firstjob:
     runs-on:
       ubuntu-latest
-
+    environment: dev
     steps:
       - name: first jobs
         run: echo "hello world"
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build frontend
+        run: |
+          echo "${{ secrets.FRONT }}" > .env
+          cat .env
 
