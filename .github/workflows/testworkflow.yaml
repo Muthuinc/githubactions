@@ -14,9 +14,9 @@ jobs:
         uses: actions/checkout@v2
       - name: Build frontend
         run: |
-          echo "FRONT=${{ secrets.FRONT }}" >> .env
-          echo "SECOND=${{ secrets.SECOND }}" >> .env
-          echo "MUTHU=${{ secrets.MUTHU }}" >> .env
+          echo "${{ secrets.FRONT }}" > .env
+          echo "${{ secrets.SECOND }}" >> .env
+          echo "${{ secrets.MUTHU }}" >> .env
           cat .env
           pwd
           ls -al
