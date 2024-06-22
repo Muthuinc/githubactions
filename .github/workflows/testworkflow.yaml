@@ -16,8 +16,8 @@ jobs:
       - name: Build frontend
         run: |
           echo "${{ secrets.FRONT }}" > .env
-          echo "${{ secrets.SECOND}}" >> .env
-          echo "${{ secrets.MUTHU}}" >> .env
+          echo "${{ secrets.SECOND }}" >> .env
+          echo "${{ secrets.MUTHU }}" >> .env
           cat .env
           pwd
           ls -al
