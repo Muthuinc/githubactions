@@ -5,19 +5,18 @@ on:
 
 jobs:
   firstjob:
-    runs-on:
-      ubuntu-latest
+    runs-on: ubuntu-latest
     environment: dev
     steps:
-      - name: first jobs
+      - name: first job
         run: echo "hello world"
       - name: Checkout code
         uses: actions/checkout@v2
       - name: Build frontend
         run: |
-          echo "${{ secrets.FRONT }}" > .env
-          echo "${{ secrets.SECOND }}" >> .env
-          echo "${{ secrets.MUTHU }}" >> .env
+          echo "FRONT=${{ secrets.FRONT }}" > .env
+          echo "SECOND=${{ secrets.SECOND }}" >> .env
+          echo "MUTHU=${{ secrets.MUTHU }}" >> .env
           cat .env
           pwd
           ls -al
