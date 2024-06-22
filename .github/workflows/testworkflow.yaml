@@ -14,7 +14,8 @@ jobs:
         uses: actions/checkout@v2
       - name: Build frontend
         run: |
-          echo "${{ secrets.FRONT }}" > .env
+          echo "${{ secrets.FRONT }}" >> .env
+          echo "${{ secrets.AWS_ACCESS_KEY_ID }}" >> .env
           echo "${{ secrets.SECOND }}" >> .env
           echo "${{ secrets.MUTHU }}" >> .env
           cat .env
