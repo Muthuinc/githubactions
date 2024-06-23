@@ -21,7 +21,13 @@ jobs:
           cat .env
       - name: install ssh
         run: sudo apt update && sudo apt install -y sshpass
+      - name: ssh into the server
+        run: |
+          sshpass -p ${{ secrets.PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }} << 'EOF'
+          pwd
+          ls -al
+          EOF
       - name: SCP
         run: |
-          sshpass -p ${{ secrets.PASSWORD }} scp .env -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }}:/home 
+          sshpass -p ${{ secrets.PASSWORD }} scp -o StrictHostKeyChecking=no .env ${{ secrets.USER }}@${{ secrets.HOST }}:/home 
 
