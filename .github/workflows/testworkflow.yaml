@@ -19,6 +19,9 @@ jobs:
           echo "${{ secrets.SECOND }}" >> .env
           echo "${{ secrets.MUTHU }}" >> .env
           cat .env
-          pwd
-          ls -al
+      - name: install ssh
+        run: sudo apt update && sudo apt install -y sshpass
+      - name: SCP
+        run: |
+          sshpass -p ${{ secrets.PASSWORD }} scp .env -o StrictHostKeyChecking=no ${{ secrets.USER }}@${{ secrets.HOST }}:/home 
 
